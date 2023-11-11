@@ -1,0 +1,44 @@
+body {
+  background-color: #c7c7c7ad;
+}
+
+/* For Small screens (576px and up) */
+@media (min-width: 576px) {
+  .container {
+    width: 90%;
+  }
+}
+
+/* For Medium screens (768px and up) */
+@media (min-width: 768px) {
+  .container {
+    width: 80%;
+  }
+}
+
+/* For Large screens (992px and up) */
+@media (min-width: 992px) {
+  .container {
+    width: 70%;
+  }
+}
+
+/* For Extra Large screens (1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    width: 60%;
+  }
+}
+
+.addButton {
+  background-color: #035ffe;
+  border-radius: 50%;
+  border: none;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 35px;
+  padding: 7px 24px;
+  position: fixed;
+  bottom: 75px; /* Adjust the distance from the bottom */
+  right: 100px; /* Adjust the distance from the right */
+}
