@@ -13,7 +13,7 @@
     />
     <link rel="stylesheet" href="custom.css" />
     <script src="./node_modules/axios/dist/axios.min.js"></script>
-    <title>THE SOCIAL NETWOEK</title>
+    <title>PROFILE</title>
   </head>
   <body>
     <div class="container">
@@ -38,7 +38,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="">Home</a>
+                <a class="nav-link active" aria-current="page" href="main.html">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="profile.html"
@@ -72,44 +72,54 @@
       </nav>
     <!-- END OF NAV BAR -->
 
+    
+    <div class="" style="margin-top: 50px;">
+
+        <div class="row">
+        
+            <h1 id="nameInProfile" style="margin-bottom: 30px;">Soder<span>'s Profile</span></h1>
+            <div class="col-2" id="userProfilePic">
+                <img src="./images/x-logo-twitter-elon-musk_dezeen_2364_col_0-1-852x479.jpg" alt="" style="height: 120px; width: 120px; border-radius: 100%;">
+            </div>
+            <div class="col-4" style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding-left: 25px;" id="userProfileName">
+                <h4>Name: <span id="name">soder</span><h4>
+                <h4>User Name: <span id="userName">soder.1995</span></h4>
+            </div>
+            <div class="col-6" style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start;" id="userProfileContent">
+                <p>
+                    <span id="userProfilePostsCount" style="font-size: 30px;" >
+                        0
+                    </span>
+                    Posts
+                </p>
+                <p>
+                    <span id="userProfileCommentsCount" style="font-size: 30px;" >
+                        0
+                    </span>
+                    Comments
+                </p>
+
+            </div>
+        </div>
+    </div>
+
     <!-- CARDS -->
       <div id="cards" class="cards">
         <div id="card" class="card my-5 pb-2 shadow">
-          <div class="card-body" style="padding-top: 5px; height: 75px">
-            <!-- USER PHOTO -->
-            <img
-              style="
-                min-width: 75px;
-                min-height: 75px;
-                max-width: 75px;
-                max-height: 75px;
-              "
-              src=""
-              class="rounded-circle p-2"
-              alt="..."
-            />
-            <!-- END OF USER PHOTO -->
-
-            <!-- USER NAME -->
-
-            <b class="card-title"> User Name </b>
-
-
-            <!-- END OF USER NAME -->
+          <div class="card-body">
 
           <!-- POST PICTURE -->
           <img
-            src=""
+            src="./images/FB_IMG_1599175188911.jpg"
             alt="Something went wrong!!!"
             class="card-img-bottom"
             style="height: 680px"
           />
 
-          </div>
           <!--END OF POST PICTURE -->
 
           <!-- CARD FOOTER -->
-          <div onclick="showPost()" style="padding: 5px 20px">
+          <div style="padding: 5px 20px">
             <span style="color: grey">2 days ago</span>
             <h5>Lorem ipsum dolor sit amet.</h5>
             <p style="padding-top: 5px">
@@ -131,6 +141,7 @@
         </div>
       </div>
     <!-- END OF CARDS -->
+    </div>
 
     <!-- ////////////////////////////////////////MODALS//////////////////////////////////////////////////////////// -->
 
@@ -457,8 +468,8 @@
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="main.js"></script>
     <script>
-      getAllPosts();
-      userStatus();
+        userStatus()
     </script>
+
   </body>
 </html>

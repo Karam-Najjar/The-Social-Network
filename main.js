@@ -134,10 +134,11 @@ function getAllPosts(empty = true, currentPage = 1) {
         for (tag of tags) {
           tagsHtml += `<span class="badge rounded-pill bg-secondary me-1">${tag.name}</span>`;
         }
-
+        let deleteBtn = ``;
         let updateBtn = ``;
-        if (userFromLocal.id == userId) {
-          updateBtn = `<button
+        if (userFromLocal) {
+          if (userFromLocal.id == userId) {
+            updateBtn = `<button
                         id="updateButton"
                         onclick="updatePost('${postId}', '${postTitle}', '${postBody}')"
                         style="float: right; margin-top: 8px; margin-right: 9px"
@@ -145,10 +146,10 @@ function getAllPosts(empty = true, currentPage = 1) {
                         class="btn btn-outline-secondary">
                         Update
                       </button>`;
-        }
-        let deleteBtn = ``;
-        if (userFromLocal.id == userId) {
-          deleteBtn = `<button
+          }
+
+          if (userFromLocal.id == userId) {
+            deleteBtn = `<button
                         id="deleteButton"
                         onclick="deletePost('${postId}')"
                         style="float: right; margin-top: 8px; margin-right: 9px"
@@ -156,8 +157,8 @@ function getAllPosts(empty = true, currentPage = 1) {
                         class="btn btn-outline-danger">
                         Delete
                       </button>`;
+          }
         }
-
         document.getElementById("cards").innerHTML += `
 
             <div id="card" class="card my-5 pb-2 shadow">
