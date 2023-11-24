@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap-icons/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="custom.css" />
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <title>Show post</title>
+  </head>
+</html>
+<body>
+  <div class="container">
+    <!-- NAV BAR -->
+    <nav
+      id="navBar"
+      class="navbar navbar-expand-lg bg-body-tertiary mt-2 shadow p-3 mb-5 bg-bodyrounded sticky-top"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="main.html">Tarmeez</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#"
+                >Profile</a
+              >
+            </li>
+          </ul>
+          <!-- LOGIN AND REGISTER BUTTONS -->
+          <div id="rightSideNavBar" class="d-flex">
+            <button
+              class="btn btn-outline-success me-1"
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#logInModal"
+            >
+              Log In
+            </button>
+            <button
+              class="btn btn-outline-success ms-1"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#registerModal"
+            >
+              Register
+            </button>
+          </div>
+          <!-- END OF LOGIN AND REGISTER BUTTONS -->
+        </div>
+      </div>
+    </nav>
+    <!-- END OF NAV BAR -->
+    <div id="userPost">
+      <h3 class="mt-5">Ashraf najjar</h3>
+      <div>
+        <div id="cards" class="cards">
+          <div id="card" class="card my-5 pb-2 shadow">
+            <div class="card-body" style="padding-top: 5px; height: 75px">
+              <!-- USER PHOTO -->
+              <img
+                style="
+                  min-width: 75px;
+                  min-height: 75px;
+                  max-width: 75px;
+                  max-height: 75px;
+                "
+                src="./images/FB_IMG_1599175188911.jpg"
+                class="rounded-circle p-2"
+                alt="..."
+              />
+              <!-- END OF USER PHOTO -->
+
+              <!-- USER NAME -->
+
+              <b class="card-title"> User Name </b>
+
+              <!-- END OF USER NAME -->
+            </div>
+
+            <!-- POST PICTURE -->
+            <img
+              src="./images/x-logo-twitter-elon-musk_dezeen_2364_col_0-1-852x479.jpg"
+              alt="Something went wrong!!!"
+              class="card-img-bottom"
+              style="height: 680px"
+            />
+
+            <!--END OF POST PICTURE -->
+
+            <!-- CARD FOOTER -->
+            <div>
+              <div>
+                <div style="padding: 5px 20px">
+                  <span style="color: grey">2 days ago</span>
+                  <h5>Lorem ipsum dolor sit amet.</h5>
+                  <p style="padding-top: 5px">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Illum, voluptatum.
+                  </p>
+                  <hr
+                    style="
+                      margin-left: 20px;
+                      margin-right: 20px;
+                      border: 1px solid black;
+                    "
+                  />
+                  <i class="bi bi-pen"></i>
+                  <span>(2) Comments</span>
+                  <hr
+                    style="
+                      margin-left: 20px;
+                      margin-right: 20px;
+                      border: 1px solid black;
+                    "
+                  />
+                </div>
+
+                <div
+                  id="cardComments"
+                  class="cardComments"
+                  style="
+                    background-color: rgb(229, 250, 250);
+                    padding: 5px 20px;
+                    margin: 0;
+                  "
+                >
+                  <img
+                    style="
+                      min-width: 58px;
+                      min-height: 58px;
+                      max-width: 58px;
+                      max-height: 58px;
+                    "
+                    src="./images/x-logo-twitter-elon-musk_dezeen_2364_col_0-1-852x479.jpg"
+                    class="rounded-circle p-2"
+                    alt="..."
+                  />
+                  <!-- END OF USER PHOTO -->
+
+                  <!-- USER NAME -->
+
+                  <b class="card-title"> User Name </b>
+                  <p style="display: inline; margin: 3px 0px 3px 5px">
+                    Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Quam numquam voluptates atque
+                    odit maxime, deserunt odio esse vero sapiente ipsa.
+                  </p>
+                </div>
+                <!-- TO DO -->
+                <div
+                  id="sendCommentDiv"
+                  class="input-group mt-2"
+                  style="padding: 0px 10px"
+                >
+                  <input
+                    id="sendCommentInput"
+                    type="text"
+                    class="form-control"
+                    aria-label="Text input with segmented dropdown button"
+                  />
+                  <button
+                    onclick="addNewComment()"
+                    id="sendCommentButton"
+                    type="button"
+                    class="btn btn-outline-primary"
+                  >
+                    Send
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--END OF CARD FOOTER -->
+    </div>
+  </div>
+  <!-- ////////////////////////////////////////MODALS//////////////////////////////////////////////////////////// -->
+
+  <!-- REGISTER MODAL -->
+  <div
+    class="modal fade"
+    id="registerModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel.1"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel.1">Register</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <!-- CUSTOME -->
+        <div
+          class="d-flex flex-column align-self-center pt-4"
+          style="width: 90%"
+        >
+          <div class="input-group mb-3">
+            <label
+              class="input-group pb-2"
+              for="profileImage"
+              style="font-weight: 500"
+              >Profile image</label
+            >
+            <input
+              style="border-radius: 7px"
+              type="file"
+              accept="image"
+              class="form-control"
+              id="profileImage"
+            />
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group" id="inputGroup-sizing-default"></span>
+            <input
+              id="registerName"
+              placeholder="Name"
+              style="border-radius: 7px"
+              type="text"
+              class="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default"
+            />
+          </div>
+
+          <div class="input-group mb-3">
+            <span
+              style="border-radius: 7px 0px 0px 7px"
+              class="input-group-text"
+              id="basic-addon1"
+              >@</span
+            >
+            <input
+              id="registerUserName"
+              type="text"
+              class="form-control"
+              placeholder="Username"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+
+          <div class="input-group pb-3">
+            <label for="exampleInputPassword1.1"></label>
+            <input
+              id="registerPassword"
+              style="border-radius: 7px"
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1.1"
+              placeholder="Password"
+            />
+          </div>
+        </div>
+        <!-- END OF CUSTOME -->
+
+        <!-- MODAL FOOTER -->
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button
+            type="button"
+            class="btn btn-success"
+            onclick="registerUser()"
+          >
+            Register
+          </button>
+        </div>
+        <!--END OF MODAL FOOTER -->
+      </div>
+    </div>
+    <!--END OF MODAL  -->
+  </div>
+  <!--END OF REGISTER MODAL -->
+
+  <!-- LOGIN MODAL -->
+  <div
+    class="modal fade"
+    id="logInModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <!-- CUSTOME -->
+        <div
+          class="d-flex flex-column align-self-center pt-4"
+          style="width: 90%"
+        >
+          <div class="input-group mb-3">
+            <span
+              style="border-radius: 7px 0px 0px 7px"
+              class="input-group-text"
+              id="basic-addon1"
+              >@</span
+            >
+            <input
+              value="yarob99"
+              id="logInUserName"
+              type="text"
+              class="form-control"
+              placeholder="Username"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+
+          <div class="input-group pb-3">
+            <label for="logInUserPassword"></label>
+            <input
+              value="123456"
+              style="border-radius: 7px"
+              type="password"
+              class="form-control"
+              id="logInUserPassword"
+              placeholder="Password"
+            />
+          </div>
+        </div>
+        <!-- END OF CUSTOME -->
+
+        <!-- MODAL FOOTER -->
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button
+            onclick="logInWithoutBtnCreate()"
+            type="button"
+            class="btn btn-success"
+          >
+            Login
+          </button>
+        </div>
+        <!--END OF MODAL FOOTER -->
+      </div>
+    </div>
+    <!--END OF MODAL  -->
+  </div>
+  <!--END OF LOGIN MODAL -->
+
+  <!-- LOGOUT MODAL -->
+  <div
+    class="modal fade"
+    id="logOutModal"
+    tabindex="-1"
+    aria-labelledby="Label2"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="Label2">Log Out</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">Are you sure?</div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+            onclick="logOut(false)"
+          >
+            Keep me in
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            data-bs-dismiss="modal"
+            onclick="logOut(true)"
+          >
+            Log out
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END OF LOGOUT MODAL -->
+
+  <!-- CREATE NEW POST MODAL -->
+  <div
+    class="modal fade"
+    id="createNewPostModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel.15"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel.15">
+            Create new post
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <!-- CUSTOME -->
+        <div
+          class="d-flex flex-column align-self-center pt-4"
+          style="width: 90%"
+        >
+          <div class="input-group mb-3">
+            <span class="input-group" id="inputGroup-sizing-default"></span>
+            <input
+              id="postTitle"
+              placeholder="Post title"
+              style="border-radius: 7px"
+              type="text"
+              class="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default"
+            />
+          </div>
+
+          <div class="form-floating">
+            <textarea
+              class="form-control"
+              placeholder="Descreption"
+              id="floatingTextarea"
+            ></textarea>
+            <label for="floatingTextarea">Descreption</label>
+          </div>
+
+          <div class="input-group my-3">
+            <label
+              class="input-group pb-2"
+              for="postImage"
+              style="font-weight: 500"
+              >Post image</label
+            >
+            <input
+              style="border-radius: 7px"
+              type="file"
+              accept="image"
+              class="form-control"
+              id="postImage"
+            />
+          </div>
+
+          <!-- MODAL FOOTER -->
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              id="createNewPostButton"
+              onclick="createNewPost()"
+              type="button"
+              class="btn btn-primary"
+            >
+              Create
+            </button>
+          </div>
+          <!--END OF MODAL FOOTER -->
+        </div>
+      </div>
+      <!--END OF MODAL  -->
+    </div>
+  </div>
+  <!-- END OF CREATE NEW POST MODAL -->
+
+  <!-- ////////////////////////////////////////MODALS//////////////////////////////////////////////////////////// -->
+
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="main.js"></script>
+  <script src="showPost.js"></script>
+  <script>
+    userStatus(false, false);
+    getPostFromUrl();
+  </script>
+</body>

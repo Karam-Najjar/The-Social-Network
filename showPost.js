@@ -1,0 +1,3 @@
+function logInWithoutBtnCreate() {
+  logIn(false);
+}
